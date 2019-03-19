@@ -50,8 +50,6 @@ treino_y = y[:75]
 # capturar todas posição depois da posição 75
 teste_x = x[75:]
 teste_y = y[75:]
-print('Treinaremos com %d elementos e testaremos com %d elemtos' %
-      (len(treino_x), len(teste_x)))
 '''
 
 # O Sklearn tem o pacote de split que quebra os dados x e y para dados de treino e teste.
@@ -62,6 +60,9 @@ print('Treinaremos com %d elementos e testaremos com %d elemtos' %
 # O estrato de amostras vai se basear na separação do y
 treino_x, teste_x, treino_y, teste_y = train_test_split(
     x, y, random_state=SEED, test_size=0.25, stratify=y)
+
+print('Treinaremos com %d elementos e testaremos com %d elemtos' %
+      (len(treino_x), len(teste_x)))
 print(treino_y)
 print(teste_y.value_counts())
 
