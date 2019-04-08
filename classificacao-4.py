@@ -41,8 +41,11 @@ dados = dados.drop(columns=['milhas_por_ano', 'ano_do_modelo', 'Unnamed: 0'], ax
 x = dados[["preco", "idade_do_modelo", "km_por_ano"]]
 y = dados["vendido"]
 
+# Semente para manter uma sequencia de numeros randomicos iguais
 SEED = 5
 np.random.seed(SEED)
+# Extraindo o treino e 25% dos dados em testes
+# O stratify, se a variável y for uma variável categórica binária com valores 0 e 1 e houver 25% de zeros e 75% de uns, stratify = y garantirá que sua divisão aleatória tenha 25% de 0s e 75% de 1s.
 treino_x, teste_x, treino_y, teste_y = train_test_split(x, y, test_size=0.25, stratify=y)
 
 print("Treinamentos com %d elementos e testaremos com %d elementos" % (len(treino_x), len(teste_x)))
